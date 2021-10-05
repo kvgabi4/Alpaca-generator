@@ -1,4 +1,5 @@
 export class Alpaca {
+  [key: string]: string[];
   accessories: string[] = [];
   backgrounds: string[] = [];
   ears: string[] = [];

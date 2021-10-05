@@ -1,1 +1,8 @@
-<p>style works!</p>
+<h3 class="text-uppercase">Accessorize the alpacas</h3>
+<div *ngFor="let part of parts">
+  <button (click)="choose(part)">{{ part }}</button>
+</div>
+<h3 class="text-uppercase">Style</h3>
+<div *ngFor="let style of choosenPart">
+  <button>{{ style }}</button>
+</div>
