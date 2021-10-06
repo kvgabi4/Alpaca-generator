@@ -1,8 +1,12 @@
-<h3 class="text-uppercase">Accessorize the alpacas</h3>
-<div *ngFor="let part of parts">
-  <button (click)="choose(part)">{{ part }}</button>
+<h6 class="text-uppercase">Accessorize the alpacas</h6>
+<div class="d-flex flex-row flex-wrap mb-4">
+  <div *ngFor="let part of parts">
+    <button class="btn btn-outline-primary m-1" (click)="choose(part)">{{ part }}</button>
+  </div>
 </div>
-<h3 class="text-uppercase">Style</h3>
-<div *ngFor="let style of choosenPart">
-  <button>{{ style }}</button>
+<h6 class="text-uppercase">Style</h6>
+<div class="d-flex flex-row flex-wrap">
+  <div *ngFor="let style of choosenPart">
+    <button class="btn btn-outline-primary m-1">{{ style }}</button>
+  </div>
 </div>
