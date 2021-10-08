@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Alpaca } from 'src/app/model/alpaca';
 
 @Component({
@@ -20,14 +20,26 @@ export class StyleComponent implements OnInit {
     nose: ['nose'],
   }
   parts: string[] = Object.keys(this.alpaca);
-  choosenPart: string[] = this.alpaca.accessories;
+
+  @Output() choosenPart: string = 'accessories';
+  @Output() choosenStyle: string = 'flower';
+  @Output() part: EventEmitter<any> = new EventEmitter();
+  @Output() style: EventEmitter<any> = new EventEmitter();
+  choosenPartArray: string[] = this.alpaca[this.choosenPart];
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  choosePart(part: string): void {
+    this.choosenPart = part;
+    this.choosenPartArray = this.alpaca[part]
+    this.part.emit(part);
   }
 
-  choose(part: string): void {
-    this.choosenPart = this.alpaca[part];
+  chooseStyle(style: string): void {
+    this.choosenStyle = style;
+    this.style.emit(style);
   }
+
 }

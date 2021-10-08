@@ -1,12 +1,16 @@
-<h6 class="text-uppercase">Accessorize the alpacas</h6>
-<div class="d-flex flex-row flex-wrap mb-4">
-  <div *ngFor="let part of parts">
-    <button class="btn btn-outline-primary m-1" (click)="choose(part)">{{ part }}</button>
+  <div class="d-flex flex-column">
+    <h6 class="text-uppercase">Accessorize the alpacas</h6>
+    <div class="d-flex flex-column flex-md-row justify-content-center">
+      <div class="d-flex flex-row flex-wrap mb-4">
+        <div *ngFor="let part of parts">
+          <button class="btn btn-outline-primary m-1" (click)="choosePart(part)">{{ part }}</button>
+        </div>
+      </div>
+    </div>
+    <h6 class="text-uppercase">Style</h6>
+    <div class="d-flex flex-row flex-wrap">
+      <div *ngFor="let style of choosenPartArray">
+        <button class="btn btn-outline-primary m-1" (click)="chooseStyle(style)">{{ style }}</button>
+      </div>
+    </div>
   </div>
-</div>
-<h6 class="text-uppercase">Style</h6>
-<div class="d-flex flex-row flex-wrap">
-  <div *ngFor="let style of choosenPart">
-    <button class="btn btn-outline-primary m-1">{{ style }}</button>
-  </div>
-</div>
