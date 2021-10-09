@@ -1,4 +1,3 @@
-import { parseTemplate } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
 import { Alpaca } from 'src/app/model/alpaca';
 
