@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Alpaca } from 'src/app/model/alpaca';
+import mergeImages from 'merge-images';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-picture',
@@ -7,6 +9,7 @@ import { Alpaca } from 'src/app/model/alpaca';
   styleUrls: ['./picture.component.scss']
 })
 export class PictureComponent implements OnInit {
+  [x: string]: any;
 
   parts: string[] = [
     'backgrounds', 'neck', 'ears', 'nose',
@@ -60,6 +63,20 @@ export class PictureComponent implements OnInit {
       this.part = key;
       this.styleChange(this.style);
     }
+  }
+
+  download(): void {
+    this.imageNumber += 1;
+    const myImages = document.querySelectorAll('img');
+    const myImagesArray: any = [];
+    for (let i = 0; i < myImages.length-1; i++) {
+      myImagesArray[i] = myImages[i].src;
+    }
+    // const ok = document.querySelector('.ok') as HTMLImageElement;
+    mergeImages(myImagesArray)
+      .then((b64: string) => {
+        saveAs(b64, `alpaca.png`)
+      });
   }
 
 }

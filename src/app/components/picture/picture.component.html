@@ -1,10 +1,21 @@
 <div class="col-12 d-flex flex-column flex-md-row">
 
   <div class="col-12 col-md-6 position-relative">
-    <img *ngFor="let item of source" [src]="[item]" alt="">
-    <button class="btn btn-outline-primary" (click)="randomize()">
+    <div class="image-holder">
+      <img *ngFor="let item of source" [src]="[item]" alt="">
+    </div>
+
+    <!-- <img class="ok" src="" hidden> -->
+
+    <button class="btn btn-outline-primary me-4" (click)="randomize()">
       <i class="fa fa-random btn-primary p-1"></i>&nbsp;Random
     </button>
+
+    <a class="a btn btn-outline-primary ms-4" href="" (click)="download()" download>
+      <i class="fa fa-download btn-primary p-1"></i>&nbsp;Download
+    </a>
+
+
   </div>
 
 
